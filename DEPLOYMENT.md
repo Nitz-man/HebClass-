@@ -21,6 +21,7 @@ HebClass deploys as one Render Node web service. The Express backend serves the 
 Render will create:
 
 - Node web service: `hebclass`
+- Free instance plan
 - `NODE_ENV=production`
 - Generated `JWT_SECRET`
 
