@@ -21,10 +21,10 @@ HebClass deploys as one Render Node web service. The Express backend serves the 
 Render will create:
 
 - Node web service: `hebclass`
-- Persistent disk: `hebclass-data`
 - `NODE_ENV=production`
-- `DATA_DIR=/var/data`
 - Generated `JWT_SECRET`
+
+The default Blueprint does not create a persistent disk. This keeps the deploy eligible for Render's lowest-cost/free option when available, but local JSON data may reset when the service restarts or redeploys. For a production class, add a persistent disk and set `DATA_DIR=/var/data`.
 
 ## After Deploy
 
