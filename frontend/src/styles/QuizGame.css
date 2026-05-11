@@ -1,0 +1,123 @@
+.quiz-redesign {
+  min-height: 100vh;
+}
+
+.quiz-stage {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 220px minmax(0, 1fr);
+}
+
+.quiz-avatar-rail {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 8px;
+}
+
+.quiz-streak-card {
+  background: linear-gradient(180deg, #fff7ed, #ffedd5);
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  color: #9a3412;
+  padding: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.quiz-streak-card span {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.quiz-streak-card strong {
+  display: block;
+  font-size: 42px;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+.question-section {
+  text-align: center;
+}
+
+.question-text p {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.word {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  color: #0f172a;
+  direction: rtl;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 28px;
+  padding: 34px 18px;
+}
+
+.answers-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+.answer-button {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 900;
+  min-height: 76px;
+  padding: 16px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.answer-button:hover:not(:disabled) {
+  background: #eef2ff;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.answer-button.correct {
+  background: #dcfce7;
+  border-color: #10b981;
+  color: #166534;
+}
+
+.answer-button.wrong {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.answer-button:disabled {
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .quiz-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-avatar-rail {
+    display: none;
+  }
+
+  .answers-grid {
+    grid-template-columns: 1fr;
+  }
+}

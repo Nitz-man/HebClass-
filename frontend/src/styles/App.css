@@ -1,0 +1,254 @@
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #ec4899;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ==================== LOADING STATE ==================== */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* ==================== COMMON COMPONENTS ==================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.button-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(99, 102, 241, 0.3);
+}
+
+.button-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.button-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(236, 72, 153, 0.3);
+}
+
+.button-success {
+  background: var(--success-color);
+  color: white;
+}
+
+.button-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(16, 185, 129, 0.3);
+}
+
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Large screens (desktop) */
+@media (min-width: 1024px) {
+  .App {
+    padding: 40px;
+  }
+
+  .grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .button-large {
+    padding: 24px 48px;
+    font-size: 20px;
+  }
+}
+
+/* Medium screens (tablet) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .App {
+    padding: 24px;
+  }
+
+  .grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .button-large {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 767px) {
+  .App {
+    padding: 12px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .grid-auto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .button-large {
+    padding: 16px 32px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+/* ==================== FLEX UTILITIES ==================== */
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}

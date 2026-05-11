@@ -1,0 +1,127 @@
+.avatar-character {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar-character.size-sm .avatar-disc { width: 40px; height: 40px; font-size: 22px; }
+.avatar-character.size-md .avatar-disc { width: 80px; height: 80px; font-size: 44px; }
+.avatar-character.size-lg .avatar-disc { width: 140px; height: 140px; font-size: 78px; }
+.avatar-character.size-xl .avatar-disc { width: 220px; height: 220px; font-size: 124px; }
+
+.avatar-disc {
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 -8px 14px rgba(0, 0, 0, 0.18),
+    inset 0 6px 10px rgba(255, 255, 255, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.18);
+  transform: translateZ(0);
+}
+
+/* Mood scales applied on top of size. */
+.mood-celebrate .avatar-disc { animation: avatarPop 0.6s ease-out; }
+.mood-sad .avatar-disc { filter: saturate(0.7); }
+
+.avatar-emoji {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  user-select: none;
+}
+
+.emoji-main { display: inline-block; transform-origin: center; }
+
+.emoji-accent {
+  position: absolute;
+  font-size: 0.42em;
+  right: -8%;
+  top: -4%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  animation: accentTwinkle 2.2s ease-in-out infinite;
+}
+
+/* Per-character idle animations. Kept short and on transform/opacity only. */
+.anim-breakdance .emoji-main { animation: breakdance 1.8s ease-in-out infinite; }
+.anim-wobble .emoji-main     { animation: wobble 2.4s ease-in-out infinite; }
+.anim-shimmy .emoji-main     { animation: shimmy 1.4s ease-in-out infinite; }
+.anim-thump .emoji-main      { animation: thump 1.6s ease-in-out infinite; }
+.anim-glitch .emoji-main     { animation: glitch 2s steps(8, end) infinite; }
+.anim-flex .emoji-main       { animation: flex 1.8s ease-in-out infinite; }
+.anim-hatch .emoji-main      { animation: hatch 2.2s ease-in-out infinite; }
+.anim-sway .emoji-main       { animation: sway 3s ease-in-out infinite; }
+.anim-reduced .emoji-main    { animation: none; }
+.anim-reduced .emoji-accent  { animation: none; }
+
+.mood-celebrate .emoji-main { animation-duration: 0.7s !important; }
+
+@keyframes breakdance {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  25%      { transform: translateY(-8px) rotate(8deg); }
+  50%      { transform: translateY(0) rotate(-10deg) scale(1.05); }
+  75%      { transform: translateY(-4px) rotate(12deg); }
+}
+@keyframes wobble {
+  0%, 100% { transform: rotate(-4deg); }
+  50%      { transform: rotate(6deg) translateY(-4px); }
+}
+@keyframes shimmy {
+  0%, 100% { transform: translateX(-3px) rotate(-3deg); }
+  50%      { transform: translateX(3px) rotate(3deg); }
+}
+@keyframes thump {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-6px) scale(1.08); }
+}
+@keyframes glitch {
+  0%, 100% { transform: translate(0, 0); }
+  20%      { transform: translate(-2px, 1px); }
+  40%      { transform: translate(2px, -1px); }
+  60%      { transform: translate(-1px, -2px); }
+  80%      { transform: translate(1px, 2px); }
+}
+@keyframes flex {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50%      { transform: scaleX(1.08) scaleY(0.94); }
+}
+@keyframes hatch {
+  0%, 100% { transform: translateY(0); }
+  10%      { transform: translateY(-3px) rotate(-6deg); }
+  20%      { transform: translateY(0) rotate(8deg); }
+  30%      { transform: translateY(-2px) rotate(-4deg); }
+  40%      { transform: translateY(0); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%      { transform: rotate(3deg); }
+}
+@keyframes accentTwinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50%      { transform: scale(1.15) rotate(15deg); opacity: 0.85; }
+}
+@keyframes avatarPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15) rotate(-4deg); }
+  70%  { transform: scale(0.96) rotate(2deg); }
+  100% { transform: scale(1); }
+}
+
+.avatar-name {
+  text-align: center;
+  max-width: 220px;
+}
+.avatar-name-text { font-weight: 700; font-size: 0.95rem; }
+.avatar-name-tagline { font-size: 0.78rem; opacity: 0.7; margin-top: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-disc, .emoji-main, .emoji-accent {
+    animation: none !important;
+  }
+}
